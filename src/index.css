@@ -440,6 +440,15 @@ button {
     width: 100%;
 }
 
+.mobile-nav-btn {
+    text-decoration: none !important;
+    padding: 12px 24px;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+
 .github-mobile {
     gap: 8px;
     border-bottom: none;
@@ -1761,8 +1770,8 @@ button {
 }
 
 @media (max-width: 768px) {
-    .nav-center, .nav-right .github-btn {
-        display: none;
+    .nav-center, .nav-right {
+        display: none !important;
     }
     
     .mobile-menu-btn {
@@ -2469,6 +2478,10 @@ button {
     .section {
         padding: 80px 0;
     }
+    
+    .hero-section, .about-hero {
+        padding-top: 160px !important;
+    }
 
     .section-container {
         padding: 0 24px;
@@ -2533,7 +2546,55 @@ button {
     }
 
     .risk-card-v2 {
-        height: 280px;
+        height: 180px !important;
+    }
+
+    .rc-score {
+        font-size: 36px !important;
+        margin-left: 12px !important;
+    }
+
+    .rc-icon-ring {
+        width: 32px !important;
+        height: 32px !important;
+        margin-right: 12px !important;
+    }
+
+    .rc-icon-ring svg {
+        width: 14px !important;
+        height: 14px !important;
+    }
+
+    .rc-bottom {
+        margin: 6px !important;
+        padding: 10px !important;
+        border-radius: 12px !important;
+    }
+
+    .rc-badge {
+        font-size: 9px !important;
+        padding: 4px 8px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .rc-title {
+        font-size: 14px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .rc-desc {
+        font-size: 11px !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        margin-bottom: 4px !important;
+    }
+
+    .rc-action {
+        font-size: 10px !important;
+        padding-top: 4px !important;
     }
 
     /* Hero audit card */
@@ -2633,11 +2694,120 @@ button {
         flex-direction: column;
         align-items: center;
     }
+
+    /* CRUSH ALL GAPS FOR ALL PHONES */
+    .section-header {
+        margin-bottom: 24px !important;
+    }
+
+    .pipeline-container {
+        gap: 0px !important;
+    }
+
+    .pipeline-arrow {
+        margin: 4px auto !important;
+        font-size: 18px !important;
+    }
+
+    .pipeline-step {
+        gap: 8px !important;
+    }
+
+    .step-card, .final-card {
+        padding: 12px !important;
+        gap: 8px !important;
+    }
+
+    .step-icon, .final-card .step-icon {
+        width: 32px !important;
+        height: 32px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .step-icon svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    .step-title, .final-card .step-title {
+        font-size: 15px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .step-desc, .final-card .step-desc {
+        font-size: 13px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .step-tag {
+        font-size: 9px !important;
+        padding: 4px 8px !important;
+    }
+
+    .step-number {
+        width: 24px !important;
+        height: 24px !important;
+        font-size: 10px !important;
+        top: -12px !important;
+        left: 12px !important;
+    }
+
+    /* USE CASES COMPACT */
+    .use-cases-grid {
+        gap: 16px !important;
+    }
+
+    .persona-card {
+        padding: 16px !important;
+    }
+
+    .persona-icon {
+        width: 32px !important;
+        height: 32px !important;
+        margin-bottom: 12px !important;
+        padding: 8px !important;
+    }
+
+    .persona-title {
+        font-size: 16px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .persona-text {
+        font-size: 12px !important;
+        margin-bottom: 16px !important;
+        min-height: auto !important;
+    }
 }
 
 @media (max-width: 480px) {
+    .nav-container {
+        padding: 12px 16px;
+    }
+
+    .tagline {
+        display: block;
+        font-size: 8px;
+        letter-spacing: 0.02em;
+        margin-top: 2px;
+    }
+
+    .mobile-nav-btn {
+        display: none !important;
+    }
+
     .hero-section {
-        padding: 90px 16px 40px;
+        padding-top: 130px;
+        padding-bottom: 40px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .about-hero {
+        padding-top: 170px !important;
+        padding-bottom: 40px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .main-title {
@@ -2670,8 +2840,19 @@ button {
         font-size: 14px;
     }
 
+    /* Ultra-compact UI for standard/small phones */
+    .hero-container {
+        gap: 16px;
+    }
+
+    .badge {
+        font-size: 11px;
+        padding: 4px 12px;
+        margin-bottom: 16px;
+    }
+
     .huge-stat {
-        font-size: 52px;
+        font-size: 44px;
     }
 
     .tech-grid {
@@ -2679,101 +2860,200 @@ button {
     }
 
     .risk-card-v2 {
-        height: 240px;
+        height: 170px; /* Ultra-compact height */
+    }
+
+    .rc-icon-ring {
+        width: 32px;
+        height: 32px;
+    }
+
+    .rc-icon-ring svg {
+        width: 14px;
+        height: 14px;
     }
 
     .rc-bottom {
-        margin: 8px;
-        padding: 14px;
+        margin: 4px;
+        padding: 8px;
+    }
+
+    .rc-badge {
+        font-size: 8px;
+        padding: 3px 6px;
+        margin-bottom: 6px;
     }
 
     .rc-title {
-        font-size: 16px;
+        font-size: 13px;
+        margin-bottom: 2px;
     }
 
     .rc-desc {
-        font-size: 12px;
+        font-size: 10px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        margin-bottom: 6px;
     }
 
-    /* Fine-tune audit card for phone */
+    .rc-action {
+        font-size: 9px;
+        padding-top: 6px;
+    }
+
+    /* Ultra-compact hero audit card */
     .audit-card {
-        padding: 12px;
+        padding: 10px;
+    }
+
+    .card-label {
+        font-size: 9px;
     }
 
     .query-text {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .status-bit {
-        font-size: 9px;
+        font-size: 8px;
         padding: 2px 4px;
     }
 
+    .gauge-container {
+        transform: scale(0.65);
+        margin: -24px auto;
+    }
+
     .gauge-svg {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
     }
 
     .gauge-number {
-        font-size: 24px;
+        font-size: 20px;
+    }
+
+    .gauge-label {
+        font-size: 8px;
     }
 
     .audit-trace {
         display: none;
     }
 
+    .score-row {
+        padding: 4px 0;
+    }
+
     .score-name {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .score-tag {
-        font-size: 9px;
+        font-size: 8px;
     }
 
     .score-val {
-        font-size: 12px;
+        font-size: 11px;
     }
 
-    /* Other cards */
-    .ecosystem-title {
-        font-size: 26px;
-    }
-
-    .cta-banner-title {
-        font-size: 26px;
+    /* Other cards forced compact */
+    .ecosystem-title, .cta-banner-title {
+        font-size: 24px;
     }
 
     .about-hero-subtext {
-        font-size: 16px;
+        font-size: 14px;
     }
 
-    .problem-card {
-        padding: 16px;
+    .problem-card, .team-card, .use-case-card, .context-card, .tech-card, .philosophy-card, .step-card, .final-card {
+        padding: 12px;
     }
+
+    .step-card {
+        gap: 8px;
+    }
+
+    .step-icon, .final-card .step-icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 12px;
+    }
+
+    .step-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .formula-card {
+        padding: 16px 12px;
+    }
+
+    .formula-block {
+        padding: 16px;
+        font-size: 12px;
+    }
+
+    .step-title, .final-card .step-title {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .step-desc, .final-card .step-desc {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .step-tag {
+        font-size: 9px;
+        padding: 2px 6px;
+    }
+
+    .step-number {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+
+    .pipeline-container {
+        gap: 0px;
+    }
+
+    .pipeline-arrow {
+        margin: 4px auto;
+        font-size: 18px;
+    }
+
+    .pipeline-step {
+        gap: 8px;
+    }
+
 
     .pr-icon-ring {
-        width: 44px;
-        height: 44px;
+        width: 36px;
+        height: 36px;
     }
 
     .pr-icon-ring svg {
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
     }
 
-    .team-card, .use-case-card, .context-card {
-        padding: 16px;
+    .pr-title {
+        font-size: 16px;
+    }
+
+    .pr-desc {
+        font-size: 13px;
     }
 
     .avatar {
-        width: 64px;
-        height: 64px;
-        font-size: 22px;
+        width: 56px;
+        height: 56px;
+        font-size: 20px;
     }
 
     .philosophy-tags {
@@ -2782,8 +3062,8 @@ button {
     }
 
     .ptag {
-        font-size: 11px;
-        padding: 6px 12px;
+        font-size: 10px;
+        padding: 4px 10px;
     }
 
     /* Hide cursor demo on phones */

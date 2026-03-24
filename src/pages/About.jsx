@@ -162,7 +162,7 @@ const About = () => {
                     <div className="avatar bg-dark-purple">JD</div>
                     <h3 className="team-name">Joydeep Das</h3>
                     <div className="team-role">Evaluation & Dashboard</div>
-                    <p className="team-bio">RAGAS integration, score aggregation, Streamlit UI, FastAPI endpoint</p>
+                    <p className="team-bio">RAGAS integration, score aggregation, React SPA UI, FastAPI endpoint</p>
                     <div className="team-socials">
                         <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
                         <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
@@ -267,7 +267,7 @@ const About = () => {
                     </div>
                     <h3 className="context-title">India Innovates 2026</h3>
                     <div className="context-subtitle">Bharat Mandapam, New Delhi — March 28, 2026</div>
-                    <p className="context-desc">MediRAG-Eval was built for India Innovates 2026, demonstrating 3 live modules: RAG backbone, faithfulness scoring, and the Streamlit audit dashboard.</p>
+                    <p className="context-desc">MediRAG-Eval was built for India Innovates 2026, demonstrating 3 live modules: RAG backbone, faithfulness scoring, and the high-fidelity React audit dashboard.</p>
                     <div className="context-tag green-tag">Demo-Ready ✓</div>
                 </div>
                 
