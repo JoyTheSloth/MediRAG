@@ -1,9 +1,17 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const location = useLocation();
+
+    // Close menu when route changes
+    React.useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [location]);
+
     return (
-        <nav className="navbar" id="navbar">
+        <nav className={`navbar ${isMobileMenuOpen ? 'mobile-open' : ''}`} id="navbar">
             <div className="nav-container">
                 <div className="nav-left">
                     <Link to="/" className="logo">
@@ -17,34 +25,66 @@ const Navbar = () => {
                     <div className="tagline">Hallucination Detection for Medical AI</div>
                 </div>
                 
+                {/* Desktop Nav */}
                 <div className="nav-center">
-                    <NavLink to="/" end className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>Home</NavLink>
-                    <NavLink to="/evaluate" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>Evaluate</NavLink>
-                    <NavLink to="/dashboard" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>Dashboard</NavLink>
-                    <NavLink to="/api-docs" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>API Docs</NavLink>
-                    <NavLink to="/about" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>About</NavLink>
+                    <NavLink to="/" end className={({ isActive }) => (isActive ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>Home</NavLink>
+                    <NavLink to="/evaluate" className={({ isActive }) => (isActive ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>Evaluate</NavLink>
+                    <NavLink to="/dashboard" className={({ isActive }) => (isActive ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>Dashboard</NavLink>
+                    <NavLink to="/api-docs" className={({ isActive }) => (isActive ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>API Docs</NavLink>
+                    <NavLink to="/about" className={({ isActive }) => (isActive ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>About</NavLink>
                 </div>
 
                 <div className="nav-right">
-                    <a href="https://github.com/medirag/medirag-eval" className="github-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/JoyTheSloth/MediRAG" className="github-btn target-cursor" target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="github-icon">
                             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                         </svg>
                         GitHub
                     </a>
                     <Link to="/evaluate">
-                        <button className="primary-btn">Run Evaluation &rarr;</button>
+                        <button className="primary-btn target-cursor">Run Evaluation &rarr;</button>
                     </Link>
                 </div>
 
-                <button className="mobile-menu-btn" id="mobile-menu-btn">
+                {/* Mobile Hamburger Button */}
+                <button 
+                    className="mobile-menu-btn target-cursor" 
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M3 12h18M3 6h18M3 18h18" strokeLinecap="round"/>
+                        {isMobileMenuOpen ? (
+                             <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round"/>
+                        ) : (
+                             <path d="M3 12h18M3 6h18M3 18h18" strokeLinecap="round"/>
+                        )}
                     </svg>
                 </button>
             </div>
+
+            {/* Mobile Nav Dropdown */}
+            {isMobileMenuOpen && (
+                <div className="mobile-nav-dropdown">
+                    <NavLink to="/" end className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</NavLink>
+                    <NavLink to="/evaluate" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Evaluate</NavLink>
+                    <NavLink to="/dashboard" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Dashboard</NavLink>
+                    <NavLink to="/api-docs" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>API Docs</NavLink>
+                    <NavLink to="/about" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</NavLink>
+                    
+                    <div className="mobile-nav-footer">
+                        <Link to="/evaluate" className="mobile-nav-btn primary-btn flex-center" onClick={() => setIsMobileMenuOpen(false)}>
+                            Run Evaluation &rarr;
+                        </Link>
+                        <a href="https://github.com/JoyTheSloth/MediRAG" className="mobile-nav-link github-mobile flex-center" target="_blank" rel="noopener noreferrer">
+                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="github-icon">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg> View GitHub
+                        </a>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 };
+
 
 export default Navbar;

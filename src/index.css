@@ -385,7 +385,75 @@ button {
     color: var(--text-white);
     width: 24px;
     height: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
 }
+
+/* Mobile Dropdown styles */
+.mobile-nav-dropdown {
+    display: none; /* hidden by default, handled by wrapper class & media query */
+    flex-direction: column;
+    background: rgba(10, 15, 30, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.navbar.mobile-open {
+    background: rgba(10, 15, 30, 1);
+}
+
+.mobile-nav-link {
+    color: var(--text-gray-light);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.mobile-nav-link:hover, .mobile-nav-link.active {
+    color: var(--green-accent);
+}
+
+.mobile-nav-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.github-mobile {
+    gap: 8px;
+    border-bottom: none;
+    color: var(--text-gray);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-dropdown {
+        /* On mobile, standard block display is forced when component renders it */
+        display: flex; 
+    }
+}
+
 
 /* =========================================================================
    HERO SECTION
@@ -2399,15 +2467,21 @@ button {
 
 @media (max-width: 768px) {
     .section {
-        padding: 60px 0;
+        padding: 80px 0;
     }
 
     .section-container {
-        padding: 0 20px;
+        padding: 0 24px;
     }
 
     .main-title {
-        font-size: 32px;
+        font-size: 42px;
+        line-height: 1.1;
+    }
+
+    .subheadline {
+        font-size: 16px;
+        margin-bottom: 32px;
     }
 
     /* Problem section */
@@ -2417,7 +2491,8 @@ button {
 
     .problem-card {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
+        align-items: flex-start;
         gap: 16px;
         padding: 24px;
     }
@@ -2430,7 +2505,7 @@ button {
     }
 
     .huge-stat {
-        font-size: 64px;
+        font-size: 72px;
     }
 
     /* Team & Impact */
@@ -2448,7 +2523,7 @@ button {
 
     /* Tech Philosophy */
     .tech-philosophy-card {
-        padding: 32px 20px;
+        padding: 40px 24px;
     }
 
     /* Risk cards */
@@ -2458,21 +2533,22 @@ button {
     }
 
     .risk-card-v2 {
-        height: 340px;
+        height: 380px;
     }
 
     /* Hero audit card */
     .audit-card {
         max-width: 100%;
+        margin-top: 24px;
     }
 
     .hero-container {
-        gap: 40px;
+        gap: 24px;
     }
 
     /* Ecosystem banner */
     .ecosystem-banner {
-        padding: 32px 20px;
+        padding: 40px 24px;
         min-height: auto;
     }
 
@@ -2482,10 +2558,12 @@ button {
 
     .ecosystem-text {
         text-align: center;
+        font-size: 16px;
     }
 
     .ecosystem-logos {
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     /* Tech stack */
@@ -2502,6 +2580,7 @@ button {
     .footer-container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 40px;
     }
     
     .footer-left, .footer-right {
@@ -2516,7 +2595,7 @@ button {
 
     /* CTA */
     .cta-banner {
-        padding: 80px 20px 60px;
+        padding: 80px 24px;
     }
 
     .cta-banner-actions {
@@ -2526,20 +2605,28 @@ button {
 }
 
 @media (max-width: 480px) {
+    .hero-section {
+        padding: 100px 20px 60px;
+    }
+
     .main-title {
-        font-size: 26px;
+        font-size: 36px;
     }
 
     .section-title {
-        font-size: 22px;
+        font-size: 28px;
+    }
+
+    .subheadline {
+        font-size: 15px;
     }
 
     .home-section-label, .about-section-label {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .huge-stat {
-        font-size: 48px;
+        font-size: 56px;
     }
 
     .tech-grid {
@@ -2547,24 +2634,28 @@ button {
     }
 
     .risk-card-v2 {
-        height: 300px;
+        height: 360px;
     }
 
     .rc-bottom {
-        margin: 12px 8px 8px;
-        padding: 16px;
+        margin: 12px 12px 12px;
+        padding: 20px;
+    }
+    
+    .rc-title {
+        font-size: 18px;
     }
 
     .ecosystem-title {
-        font-size: 22px;
-    }
-
-    .cta-banner-title {
         font-size: 26px;
     }
 
+    .cta-banner-title {
+        font-size: 30px;
+    }
+
     .about-hero-subtext {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .problem-card {
@@ -2582,13 +2673,13 @@ button {
     }
 
     .team-card {
-        padding: 24px 16px;
+        padding: 24px 20px;
     }
 
     .avatar {
-        width: 72px;
-        height: 72px;
-        font-size: 24px;
+        width: 80px;
+        height: 80px;
+        font-size: 28px;
     }
 
     .philosophy-tags {
@@ -2596,8 +2687,8 @@ button {
     }
 
     .ptag {
-        font-size: 11px;
-        padding: 6px 12px;
+        font-size: 12px;
+        padding: 8px 14px;
     }
 }
 
