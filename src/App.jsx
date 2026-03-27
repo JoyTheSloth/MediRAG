@@ -8,6 +8,7 @@ import About from './pages/About';
 import Dashboard from './pages/Dashboard';
 import Evaluate from './pages/Evaluate';
 import ApiDocs from './pages/ApiDocs';
+import Console from './pages/Console';
 import TargetCursor from './components/TargetCursor';
 
 function App() {
@@ -72,10 +73,11 @@ function App() {
       <main>
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/evaluate" element={<Evaluate />} />
+            <Route path="/evaluate" element={<Console />} />
+            <Route path="/dashboard" element={<Console />} />
+            <Route path="/console" element={<Console />} />
             <Route path="/api-docs" element={<ApiDocs />} />
             <Route path="/about" element={<About />} />
-            <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </main>
 

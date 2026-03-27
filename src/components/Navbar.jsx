@@ -28,8 +28,7 @@ const Navbar = () => {
                 {/* Desktop Nav */}
                 <div className="nav-center">
                     <NavLink to="/" end className={({ isActive }) => (isActive ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>Home</NavLink>
-                    <NavLink to="/evaluate" className={({ isActive }) => (isActive ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>Evaluate</NavLink>
-                    <NavLink to="/dashboard" className={({ isActive }) => (isActive ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>Dashboard</NavLink>
+                    <NavLink to="/console" className={({ isActive }) => (isActive || location.pathname==='/evaluate' || location.pathname==='/dashboard' ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>Console</NavLink>
                     <NavLink to="/api-docs" className={({ isActive }) => (isActive ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>API Docs</NavLink>
                     <NavLink to="/about" className={({ isActive }) => (isActive ? 'nav-link active target-cursor' : 'nav-link target-cursor')}>About</NavLink>
                 </div>
@@ -41,7 +40,7 @@ const Navbar = () => {
                         </svg>
                         GitHub
                     </a>
-                    <Link to="/evaluate">
+                    <Link to="/console">
                         <button className="primary-btn target-cursor">Run Evaluation &rarr;</button>
                     </Link>
                 </div>
@@ -65,13 +64,12 @@ const Navbar = () => {
             {isMobileMenuOpen && (
                 <div className="mobile-nav-dropdown">
                     <NavLink to="/" end className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</NavLink>
-                    <NavLink to="/evaluate" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Evaluate</NavLink>
-                    <NavLink to="/dashboard" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Dashboard</NavLink>
+                    <NavLink to="/console" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Console</NavLink>
                     <NavLink to="/api-docs" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>API Docs</NavLink>
                     <NavLink to="/about" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</NavLink>
                     
                     <div className="mobile-nav-footer">
-                        <Link to="/evaluate" className="mobile-nav-btn primary-btn flex-center" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link to="/console" className="mobile-nav-btn primary-btn flex-center" onClick={() => setIsMobileMenuOpen(false)}>
                             Run Evaluation &rarr;
                         </Link>
                         <a href="https://github.com/JoyTheSloth/MediRAG" className="mobile-nav-link github-mobile flex-center" target="_blank" rel="noopener noreferrer">
